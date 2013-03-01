@@ -16,7 +16,7 @@ import org.junit.Test;
 public class MenuTest {
 	
 	/**
-	 * Attribu d'un Menu qui permettre de tester les méthodes
+	 * Attribut d'un Menu qui permettre de tester les méthodes
 	 */
 	protected Menu menu;
 	@AfterClass
