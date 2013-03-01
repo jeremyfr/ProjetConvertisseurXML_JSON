@@ -63,11 +63,19 @@ public class App
     	System.out.println( json.toString(2) );
     	
 
+    	//DE JSON A XML...
+    	XMLSerializer serializer = new XMLSerializer();
+    	JSON json1 = JSONSerializer.toJSON( json.toString(2) );
+    	//serializer.setRootName("SampleJSON");
+    	serializer.setTypeHintsEnabled(false);
+    	String xml = serializer.write( json1 );
+    	//System.out.println(xml);
+    	
     	try {
     		FileWriter file = new FileWriter("transformJson.json");
     		BufferedWriter buffer2 = new BufferedWriter(file);
     		PrintWriter pw = new PrintWriter(buffer2); 
-    		pw.print(json.toString(2));
+    		pw.print(xml);
     		pw.close();
     		System.out.println("Fichier créé");
     		}catch(IOException e){
@@ -75,13 +83,7 @@ public class App
     		System.exit(0); 
     		} 
     	
-//DE JSON A XML...
-XMLSerializer serializer = new XMLSerializer();
-JSON json1 = JSONSerializer.toJSON( json.toString(2) );
-//serializer.setRootName("SampleJSON");
-serializer.setTypeHintsEnabled(false);
-String xml = serializer.write( json1 );
-System.out.println(xml);
+
 
 
     	/*
