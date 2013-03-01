@@ -32,7 +32,7 @@ public class App
     {
 
 		
-		// DE JSON A XML...
+		// DE XML A JSON...
 		// Location du fichier JSon a convertir
 
     	
@@ -62,9 +62,14 @@ public class App
     	
     	System.out.println( json.toString(2) );
     	
-;
-    	
-    	
+
+    	// DE JSON A XML...
+    	 XMLSerializer serializer = new XMLSerializer();
+    	 JSON json1 = JSONSerializer.toJSON( json.toString(2) );
+    	 //serializer.setRootName("SampleJSON");
+    	 serializer.setTypeHintsEnabled(false);
+    	 String xml = serializer.write( json1 );
+    	 System.out.println(xml);
 
     	/*
 		String jsonData1 = jsonData;
@@ -76,9 +81,6 @@ public class App
         serializer.setTypeHintsEnabled(false);
         
 		JSON jsonAconvertir = JSONSerializer.toJSON(jsonData1);
-
-		 
-    	
 
     	System.out.println( serializer.write(jsonAconvertir));  
     	/*json1.getJSONArray( "number" ).setExpandElements( true );  
