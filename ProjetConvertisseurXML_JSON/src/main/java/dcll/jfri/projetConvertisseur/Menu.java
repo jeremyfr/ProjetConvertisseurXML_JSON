@@ -34,6 +34,10 @@ public class Menu {
 		action = -1;
 	}
 	
+	/**
+	 * Affichage des informations sur le programme et demande des informations
+	 * necessaires au bon fontionnement du programme.
+	 */
 	public void affiche(){
 		System.out.println("****************************************");
         System.out.println("******* Convertisseur XML - JSON *******");
