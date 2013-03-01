@@ -21,14 +21,26 @@ import org.apache.commons.io.IOUtils;
  */
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws Exception
     {
+
+		
+		// DE JSON A XML...
+		// Location du fichier JSon a convertir
+
+    	
     	String xml = "<o number=\"1\"> first<string>json</string> <array>  <e>1</e><e>true</e></array> </o>";
     	System.out.println( xml );
-    	InputStream isXML = (InputStream) App.class.getResourceAsStream("testxml.xml");
+    	java.io.InputStream is = App.class.getResourceAsStream("testxml.txt");
+    	String jsonData = IOUtils.toString(is);     
+    	
+    	//String xmlAconvertir = IOUtils.toString(isXML);
+    	
+    	System.out.println( is );
+    	
     	XMLSerializer xmlSerializer = new XMLSerializer();
     	xmlSerializer.setTypeHintsEnabled( false ); 
-    	JSON json = xmlSerializer.read( xml ); 
+    	JSON json = xmlSerializer.read( jsonData); 
     	
     	System.out.println( json.toString(2) );  
     	
