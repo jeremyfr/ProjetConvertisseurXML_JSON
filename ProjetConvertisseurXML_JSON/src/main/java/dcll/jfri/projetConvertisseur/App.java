@@ -3,6 +3,10 @@ package dcll.jfri.projetConvertisseur;
 import org.omg.CORBA.portable.InputStream;
 
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,14 +33,20 @@ public class App
 		// Location du fichier JSon a convertir
 
     	
-    	String xml = "<o number=\"1\"> first<string>json</string> <array>  <e>1</e><e>true</e></array> </o>";
+    	/*String xml = "<o number=\"1\"> first<string>json</string> <array>  <e>1</e><e>true</e></array> </o>";
     	System.out.println( xml );
     	java.io.InputStream is = App.class.getResourceAsStream("testxml.txt");
-    	String jsonData = IOUtils.toString(is);     
+    	String jsonData = IOUtils.toString(is);  */   
+    	
+    	String jsonData = recupStringFichier("C:\\Utilisateurs\\Helene\\Téléchargements\\quiz-moodle-exemple.xml");
+    	
+    	System.out.println(jsonData);
+    	
+    	
     	
     	//String xmlAconvertir = IOUtils.toString(isXML);
     	
-    	System.out.println( is );
+    	//System.out.println( is );
     	
     	XMLSerializer xmlSerializer = new XMLSerializer();
     	xmlSerializer.setTypeHintsEnabled( false ); 
@@ -54,7 +64,26 @@ public class App
     	System.out.println( xml1 );  
     	/*json1.getJSONArray( "number" ).setExpandElements( true );  
     	xml1 = xmlSerializer1.write( json );  
-    	System.out.println( xml1 );*/  
+    	System.out.println( xml1 );*/ 
 
+    }
+    
+    public static String recupStringFichier(String nomFichier) {
+    	String retour;
+    try{
+    	File f = new File(nomFichier);
+        byte[] buffer = new byte[(int)f.length()];
+        DataInputStream in = new DataInputStream(new FileInputStream(f));
+        in.readFully(buffer);
+        in.close();
+    	retour = new String(buffer);
+            return retour;
+        } catch (FileNotFoundException e) {
+            System.out.println("Impossible de lire le fichier "+nomFichier+" ! " +e);
+            return "";
+        } catch (IOException e) {
+        	System.out.println("Erreur de lecture !" +e);
+        	return "";
+        }
     }
 }
