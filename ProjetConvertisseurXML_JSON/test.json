@@ -1,0 +1,28 @@
+{
+  "@DOMVersion": "8.0",
+  "@Self": "d",
+  "x:xmpmeta":   {
+    "@xmlns:x": "adobe:ns:meta/",
+    "@x:xmptk": "Adobe XMP Core 5.3-c011 66.145661, 2012/02/06-14:56:27",
+    "rdf:RDF":     {
+      "@xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdf:Description":       [
+                {
+          "@xmlns:dc": "http://purl.org/dc/elements/1.1/",
+          "@rdf:about": "",
+          "dc:format": "application/x-indesign"
+        },
+                {
+          "@xmlns:xmp": "http://ns.adobe.com/xap/1.0/",
+          "@rdf:about": "",
+          "xmp:CreatorTool": "Adobe InDesign CS6 (Macintosh)"
+        },
+                {
+          "@xmlns:xmpMM": "http://ns.adobe.com/xap/1.0/mm/",
+          "@rdf:about": "",
+          "xmpMM:InstanceID": "xmp.iid:D093CC710A2068118083AFA2F0AAE3ED"
+        }
+      ]
+    }
+  }
+}

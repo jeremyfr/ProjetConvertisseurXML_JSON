@@ -62,7 +62,17 @@ public class App
     	
     	System.out.println( json.toString(2) );
     	
-;
+    	try {
+    		FileWriter file = new FileWriter("transformJson.json");
+    		BufferedWriter buffer2 = new BufferedWriter(file);
+    		PrintWriter pw = new PrintWriter(buffer2); 
+    		pw.print(json.toString(2));
+    		pw.close();
+    		System.out.println("Fichier créé");
+    		}catch(IOException e){
+    		System.out.println("Problème à l’écriture du fichier"); 
+    		System.exit(0); 
+    		} 
     	
     	
 
