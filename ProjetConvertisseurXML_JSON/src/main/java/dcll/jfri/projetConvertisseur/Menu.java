@@ -74,7 +74,7 @@ public class Menu {
 			System.out.println("Taper 2 pour convertir un fichier json en fichier xml.");
             ok = clavier.hasNextInt();
             if(ok){
-				action = clavier.nextInt();
+				action = clavier.nextInt() -1;
 				if( !(ok = action == 0 || action ==1)){
 					System.out.println("Action non reconnue");
 					System.out.println("********************");
@@ -95,10 +95,12 @@ public class Menu {
 		boolean ok;
 		// Recommence tant que que l'action n'est pas valable
 		do{
-			System.out.println("Indiquer le chemin du fichier que vous voulez convertir :");
+			System.out.print("Indiquer le chemin du fichier ");
+			System.out.print(action == XML2JSON ? "xml": "json");
+			System.out.println(" que vous voulez convertir :");
 			cheminSource = clavier.nextLine();
 	        File f = new File(cheminSource);
-	        ok = !f.exists();
+	        ok = f.exists();
 	        if(!ok){
 	            System.out.println("Le fichier n'existe pas ou le chemin est incorrect.");
 	            System.out.println("***************************************************");
@@ -107,7 +109,8 @@ public class Menu {
 			if(cheminSource.contains(".")){
 				extension = cheminSource.substring(cheminSource.lastIndexOf('.')+1, cheminSource.length());
 			}
-			ok = extension.equals("xml") || extension.equals("json");
+			ok = (action == XML2JSON && extension.equals("xml"))
+					|| (action == JSON2XML && extension.equals("json"));
 	        if(!ok){
 	            System.out.println("Le fichier specifié est incompatible pour la conversion.");
 	            System.out.println("********************************************************");
