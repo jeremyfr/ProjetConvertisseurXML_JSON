@@ -8,6 +8,10 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!!!..." );
+    	String a = "c.ccccc";
+    	a = a.substring(0, a.lastIndexOf('.'));
+    	System.out.println(a);
+        Menu menu = new Menu();
+        menu.affiche();
     }
 }
