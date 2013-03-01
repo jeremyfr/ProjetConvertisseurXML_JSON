@@ -2,6 +2,7 @@ package dcll.jfri.projetConvertisseur;
 
 import org.omg.CORBA.portable.InputStream;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
@@ -9,7 +10,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,7 +41,19 @@ public class App
     	java.io.InputStream is = App.class.getResourceAsStream("testxml.txt");
     	String jsonData = IOUtils.toString(is);  */   
     	
-    	String jsonData = recupStringFichier("C:\\Utilisateurs\\Helene\\Téléchargements\\quiz-moodle-exemple.xml");
+    	//String jsonData = recupStringFichier("C:\\Utilisateurs\\Helene\\Téléchargements\\quiz-moodle-exemple.xml");
+    	
+    	FileInputStream fichier=new FileInputStream("testxml.xml");
+    	StringWriter writer=new StringWriter();
+    	InputStreamReader streamReader=new InputStreamReader(fichier);
+    	//le buffer permet le readline
+    	BufferedReader buffer=new BufferedReader(streamReader);
+    	String line="";
+    	while ( null!=(line=buffer.readLine())){
+    	writer.write(line);
+    	}
+    	// Sortie finale dans le String
+    	String jsonData=writer.toString();
     	
     	System.out.println(jsonData);
     	
@@ -68,7 +83,7 @@ public class App
 
     }
     
-    public static String recupStringFichier(String nomFichier) {
+    /*public static String recupStringFichier(String nomFichier) {
     	String retour;
     try{
     	File f = new File(nomFichier);
@@ -85,5 +100,5 @@ public class App
         	System.out.println("Erreur de lecture !" +e);
         	return "";
         }
-    }
+    }*/
 }
