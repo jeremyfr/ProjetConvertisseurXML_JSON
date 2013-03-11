@@ -1,0 +1,23 @@
+{"quiz": {"question": {
+  "answer": [
+    {
+      "feedback": {"text": "Correct!"},
+      "fraction": 100,
+      "text": "The correct answer"
+    },
+    {
+      "feedback": {"text": "Ooops!"},
+      "fraction": 0,
+      "text": "A distractor"
+    },
+    {
+      "feedback": {"text": "Ooops!"},
+      "fraction": 0,
+      "text": "Another distractor"
+    }
+  ],
+  "answernumbering": "abc",
+  "shuffleanswers": 1,
+  "single": true,
+  "type": "multichoice"
+}}}
