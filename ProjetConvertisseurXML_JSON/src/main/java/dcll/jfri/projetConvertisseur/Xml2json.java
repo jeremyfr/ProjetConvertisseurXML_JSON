@@ -24,7 +24,7 @@ public class Xml2json extends IConvertisseur {
 	 * @param string adresseSource
 	 * @return string contenu du fichier converti en JSON
 	 */
-	public String transform(String adresseSource) throws IOException {
+	public String transform(final String adresseSource) throws IOException {
 
 		//ouverture du fichier
 		FileInputStream fichier = new FileInputStream(adresseSource);
