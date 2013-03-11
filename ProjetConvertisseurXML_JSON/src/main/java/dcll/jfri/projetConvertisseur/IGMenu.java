@@ -201,8 +201,4 @@ public class IGMenu {
     	extension = "";
     	fichier = null;
     }
-    
-    public static void main(String [] args){
-    	new IGMenu();
-    }
 }
