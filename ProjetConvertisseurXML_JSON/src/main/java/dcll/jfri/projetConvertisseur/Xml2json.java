@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 /**
- * Classe qui permet la conversion de XML vers JSON
+ * Classe permettant la conversion de XML vers JSON
  * La classe étend l'interface IConvertisseur et
  * implémente sa méthode transform.
  */
