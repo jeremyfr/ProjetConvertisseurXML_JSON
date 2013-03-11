@@ -25,7 +25,7 @@ abstract class IConvertisseur {
 	 * @return le contenu du fichier converti.
 	 * @throws IOException 
 	 */
-    public abstract String transform(String adresseSource) throws IOException;
+    public abstract String transform(final String adresseSource) throws IOException;
     
     /**
      * Enregistrement du contenu du fichier converti dans un fichier resultat.

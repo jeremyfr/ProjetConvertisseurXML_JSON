@@ -22,7 +22,7 @@ public class Json2xml extends IConvertisseur {
      * @return string contenu du fichier converti en XML
      * @throws IOException sd
      */
-    public String transform(String adresseSource) throws IOException {
+    public String transform(final String adresseSource) throws IOException {
         //ouverture du fichier
         FileInputStream fichier = new FileInputStream(adresseSource);
         StringWriter writer = new StringWriter();
