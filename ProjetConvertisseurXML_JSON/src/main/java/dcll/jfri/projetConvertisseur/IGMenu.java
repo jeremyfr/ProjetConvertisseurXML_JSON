@@ -30,36 +30,39 @@ import javax.swing.JTextField;
  * @version 1.0
  */
 public class IGMenu {
-    /** Coordonnee X de la fenetre */
+    /** Coordonnee X de la fenetre. */
     private static final int X = 300;
-    /** Coordonnee Y de la fenetre */
+    /** Coordonnee Y de la fenetre. */
     private static final int Y = 100;
-    /** Hauteur de la fenetre */
+    /** Hauteur de la fenetre. */
     private static final int HAUTEUR = 200;
-    /**Largeur de la fenetre */
+    /**Largeur de la fenetre. */
     private static final int LARGEUR = 500;
-    /** Titre de la fenetre */
+    /** Titre de la fenetre. */
     private static final String TITRE_FENETRE =
                       "Conversion de fichier XML et JSON";
-    /** Taille police Titre */
+    /** Taille police Titre. */
     private static final int TAILLE_TITRE = 24;
-    /** Taille du bouton de convertion */
+    /** Taille du bouton de convertion. */
     private static final int TAILLE_CONV = 24;
-    /** Taille du bouton de choix de fichier */
+    /** Taille du bouton de choix de fichier. */
     private static final int TAILLE_CHOIX = 10;
-    /** Fenetre affichee */
+    /** Nombre de caracteres affiches du chemin du fichier. */
+    private static final int NB_CARACTERE_CHEMIN = 30;
+
+    /** Fenetre affichee. */
     private JFrame fenetre;
-    /** Container de la fenetre */
+    /** Container de la fenetre. */
     private Container c;
-    /** Panneau d'affichage des informations de la fenetre */
+    /** Panneau d'affichage des informations de la fenetre. */
     private JPanel titre, boutons, conversion;
-    /** Bouton de conversion des fichier */
+    /** Bouton de conversion des fichier. */
     private JButton convertir;
-    /** Affichage du chemin du fichier selectionne */
+    /** Affichage du chemin du fichier selectionne. */
     private JTextField chemin;
-    /** Extension du fichier a convertir */
+    /** Extension du fichier a convertir. */
     private String extension;
-    /** Descripteur du fichier a convertir */
+    /** Descripteur du fichier a convertir. */
     private File fichier;
 
     /**
@@ -88,7 +91,7 @@ public class IGMenu {
     }
 
     /**
-     * Creation du panneau contenant le titre de la fenetre
+     * Creation du panneau contenant le titre de la fenetre.
      */
     private void makePanneauTitre() {
         // Creation du panneau contenant le titre de la fenetre
@@ -104,7 +107,7 @@ public class IGMenu {
     }
 
     /**
-     * Creation du panneau contenant les boutons du programme
+     * Creation du panneau contenant les boutons du programme.
      */
     private void makePanneauBoutons() {
         // Creation du bouton de conversion
@@ -116,14 +119,20 @@ public class IGMenu {
              * Enregistrement du fichier converti suivant l'extension du
              * fichier a convertir
              */
-            public void actionPerformed(ActionEvent actionEvent) {
+            public void actionPerformed(final ActionEvent actionEvent) {
                 // Attributs utiles pour la conversion
                 IConvertisseur convert = null;
                 String resultatParsing = "";
                 // Definition de l'action en fontion de l'extension du fichier
                 // 0 = XML -> JSON , 1 = JSON -> XML
-                int action = extension.equals("XML")
-                        ? 0 : extension.equals("JSON") ? 1 : -1;
+                int action;
+                if (extension.equals("XML")) {
+                    action = 0;
+                } else if (extension.equals("JSON")) {
+                    action = 1;
+                } else {
+                    action = -1;
+                }
                 switch(action) {
                     // XML -> JSON
                     case 0:
@@ -156,12 +165,17 @@ public class IGMenu {
                 // Creation du chemin du fichier resultat
                 String cheminResultat = chemin.getText().substring(
                         0, chemin.getText().lastIndexOf('.'));
-                cheminResultat += ".out."
-                       + (extension.equals("XML") ? "json" : "xml");
+                cheminResultat += ".out.";
+                if (extension.equals("XML")) {
+                    cheminResultat += "json";
+                } else {
+                    cheminResultat += "xml";
+                }
                 // Creation et enregistrement du fichier resultat converti
                 convert.enregistrer(resultatParsing, cheminResultat);
-                JOptionPane.showMessageDialog(fenetre, 
+                JOptionPane.showMessageDialog(fenetre,
                         "Fichier converti enregistré");
+                init();
             }
         });
         // Creation du panneau contenant les boutons de la fenetre
@@ -169,12 +183,12 @@ public class IGMenu {
         boutons.setLayout(new FlowLayout(FlowLayout.CENTER));
         boutons.add(convertir);
 
-        c.add(boutons,BorderLayout.SOUTH);  // Ajout du panneau a la fenetre
+        c.add(boutons, BorderLayout.SOUTH);  // Ajout du panneau a la fenetre
     }
 
     /**
      * Creation du panneau contenant les outils permettant la conversion a
-     * l'utilisateur
+     * l'utilisateur.
      */
     private void makePanneauConversion() {
         // Creation du panneau contenant les outils necessaires a l'utilisateur
@@ -182,12 +196,12 @@ public class IGMenu {
 
         // Creation du label indiquant le chemin du fichier a convertir
         JLabel cheminLabel = new JLabel("Chemin du fichier a convertir : ");
-        cheminLabel.setAlignmentY (Component.CENTER_ALIGNMENT);
+        cheminLabel.setAlignmentY(Component.CENTER_ALIGNMENT);
         conversion.add(cheminLabel);  // Ajout du label au panneau
 
         // Creation du champs texte permettant du connaitre le chemin du fichier
-        chemin = new JTextField(30);
-        chemin.setAlignmentY (Component.CENTER_ALIGNMENT);
+        chemin = new JTextField(NB_CARACTERE_CHEMIN);
+        chemin.setAlignmentY(Component.CENTER_ALIGNMENT);
         conversion.add(chemin);       // Ajout du textfield au panneau
 
         // Choix du fichier a convertir
@@ -197,7 +211,7 @@ public class IGMenu {
             /*
              * Ouverture d'une fenetre de choix de fichier.
              */
-            public void actionPerformed(ActionEvent actionEvent) {
+            public void actionPerformed(final ActionEvent actionEvent) {
                 // Selection de fichier
                 JFileChooser choix = new JFileChooser(".");
                 if (choix.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
@@ -206,31 +220,33 @@ public class IGMenu {
                     chemin.setText(fichier.getPath()); // affichage du chemin
                     // Recuperation de l'extension du fichier choisi
                     extension = chemin.getText().substring(
-                            chemin.getText().lastIndexOf('.')+1
-                           ,chemin.getText().length()).toUpperCase();
+                            chemin.getText().lastIndexOf('.') + 1
+                          , chemin.getText().length()).toUpperCase();
                     // Changement du texte du bouton en fontion de l'extension
                     // du fichier selectionne
-                    if (extension.equals("JSON") ) {
+                    if (extension.equals("JSON")) {
                         convertir.setText("Convertir en fichier xml");
-                    } else if(extension.equals("XML")) {
+                    } else if (extension.equals("XML")) {
                         convertir.setText("Convertir en fichier json");
                     } else {
                         init();
                         convertir.setText("Fichier choisi incompatible");
-                        convertir.setEnabled(false);// Chosir autre fichier
+                        convertir.setEnabled(false);    // Chosir autre fichier
                     }
                 }
             }
         });
-        conversion.add(explorer);  // Ajout du bouton
+        conversion.add(explorer);              // Ajout du bouton
 
-        c.add(conversion,BorderLayout.CENTER);  // Ajout du panneau a la fenetre
+        c.add(conversion, BorderLayout.CENTER); // Ajout du panneau a la fenetre
     }
 
     /**
      * Initialisation des variables de base a des valeurs par defaut.
      */
     private void init() {
+        convertir.setEnabled(false);
+        convertir.setText("Choisir un fichier");
         chemin.setText("");
         extension = "";
         fichier = null;
