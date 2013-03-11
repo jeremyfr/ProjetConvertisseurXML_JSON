@@ -58,7 +58,7 @@ public class Json2xml extends IConvertisseur {
 	public String json2string(JSONObject o){
 		JSONObject contenu;
 		try {
-			contenu = o.getJSONObject("quiz");
+			contenu = o.getJSONObject("question");
 			if(!contenu.has("name"))
 	            return "toto";
 			
