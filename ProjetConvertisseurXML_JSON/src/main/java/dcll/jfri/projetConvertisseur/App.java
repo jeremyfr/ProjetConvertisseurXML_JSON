@@ -3,6 +3,8 @@
  */
 package dcll.jfri.projetConvertisseur;
 
+import java.io.IOException;
+
 /**
  * Application de conversion de fichier XML -> JSON et JSON -> XML
  * en ligne de commande.
@@ -26,13 +28,25 @@ public class App {
         switch(menu.getAction()) {
             // XML -> JSON
             case 0:
-              // convert = new XmlToJson();
-              //resultatParsing = XmlToJson.transform(menu.getCheminSource());
+              convert = new Xml2json();
+              try {
+				resultatParsing = convert.transform(menu.getCheminSource());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             	break;
             // JSON -> XML
             case 1:
-               // convert = new JsonToXml();
-               //resultatParsing = JsonToXml.transform(menu.getCheminSource());
+               convert = new Json2xml();
+               
+               try {
+				resultatParsing = convert.transform(menu.getCheminSource());
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             	break;
             default:
             	System.out.println("Erreur de fontionnement de l'application");

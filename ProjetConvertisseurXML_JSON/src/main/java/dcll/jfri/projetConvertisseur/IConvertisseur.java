@@ -4,6 +4,7 @@
 package dcll.jfri.projetConvertisseur;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,8 +23,9 @@ abstract class IConvertisseur {
 	 * La convertion sera differente suivant l'implementation definie.
 	 * @param adresseFichier, l'adresse du fichier a convertir.
 	 * @return le contenu du fichier converti.
+	 * @throws IOException 
 	 */
-    public abstract String transform(String adresseSource);
+    public abstract String transform(String adresseSource) throws IOException;
     
     /**
      * Enregistrement du contenu du fichier converti dans un fichier resultat.
