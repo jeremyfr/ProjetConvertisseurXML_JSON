@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * MenuTest est le Junit qui permet de test les méthodes
+ * MenuTest est le Junit qui permet de test les methodes
  * de la classe Menu
  * @author Charly Carrere
  * @version 1.0
@@ -16,15 +16,22 @@ import org.junit.Test;
 public class MenuTest {
 	
 	/**
-	 * Attribut d'un Menu qui permettre de tester les méthodes
+	 * Attribut d'un Menu qui va me permettre de tester les methodes
 	 */
 	protected Menu menu;
+	
+	/**
+	 * Methode qui est execute apres la classe.
+	 * @throws Exception
+	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
 
 	/**
-	 * Méthode qui serra exécuté avant les Tests.
+	 * Methode qui est execute avant les Tests.
+	 * On cree ici un objet de type Menu afin de pouvoir
+	 * tester ses differentes methodes.
 	 */
 	@Before
 	public void setUp() {
@@ -32,7 +39,7 @@ public class MenuTest {
 	}
 
 	/**
-	 * Méthode qui serra exécté après les tests.
+	 * Methode qui serra execte apres les tests.
 	 * @throws Exception
 	 */
 	@After
@@ -40,7 +47,7 @@ public class MenuTest {
 	}
 
 	/**
-	 * Test de la méthode getCheminSource
+	 * Test de la methode getCheminSource
 	 * @throws Exception
 	 */
 	@Test
@@ -49,7 +56,7 @@ public class MenuTest {
 	}
 	
 	/**
-	 * Test de la méthode getAction
+	 * Test de la methode getAction
 	 * @throws Exception
 	 */
 	@Test
@@ -58,7 +65,7 @@ public class MenuTest {
 	}
 	
 	/**
-	 * Test de la méthode getCheminResultat
+	 * Test de la methode getCheminResultat
 	 * @throws Exception
 	 */
 	@Test
