@@ -13,8 +13,9 @@ public class App {
 	/**
 	 * Conversion de fichier XML -> JSON et JSON -> XML.
 	 * L'utilisateur choisit le fichier a convertir.
-	 * Le fichier resultat se trouvera dans le meme repertoire que le fichier
-	 * source, au format : nom_fichier.out.{xml,json}.
+	 * Le fichier resultat se trouvera dans le meme repertoire 
+	 * que le fichier source, au format : 
+	 * nom_fichier.out.{xml,json}.
 	 * @param args unused
 	 */
     public static void main(String[] args) {
@@ -30,7 +31,8 @@ public class App {
             case 0:
               convert = new Xml2json();
               try {
-				resultatParsing = convert.transform(menu.getCheminSource());
+                  resultatParsing =
+                		  convert.transform(menu.getCheminSource());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -38,18 +40,17 @@ public class App {
             	break;
             // JSON -> XML
             case 1:
-               convert = new Json2xml();
-               
+               convert = new Json2xml();               
                try {
-				resultatParsing = convert.transform(menu.getCheminSource());
-				
-			} catch (IOException e) {
+				resultatParsing = 
+						convert.transform(menu.getCheminSource());
+				} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-            	break;
+               break;
             default:
-            	System.out.println("Erreur de fontionnement de l'application");
+                System.out.println("Erreur de fontionnement de l'application");
         }
         // Creation et enregistrement du fichier resultat converti
         convert.enregistrer(resultatParsing, menu.getCheminResultat());
