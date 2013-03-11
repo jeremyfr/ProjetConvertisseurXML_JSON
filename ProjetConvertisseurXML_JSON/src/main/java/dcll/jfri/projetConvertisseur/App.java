@@ -1,43 +1,43 @@
+/*
+ * App.java                                                          01/03/2013
+ */
 package dcll.jfri.projetConvertisseur;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 /**
- * Application de conversion de fichier XML -> JSON et JSON -> XML.
+ * Application de conversion de fichier XML -> JSON et JSON -> XML
+ * en ligne de commande.
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+	/**
+	 * Conversion de fichier XML -> JSON et JSON -> XML.
+	 * L'utilisateur choisit le fichier a convertir.
+	 * Le fichier resultat se trouvera dans le meme repertoire que le fichier
+	 * source, au format : nom_fichier.out.{xml,json}.
+	 * @param args unused
+	 */
+    public static void main(String[] args) {
+    	// Affichage du menu permettant de choisir le type de conversion et
+    	// le fichier a convertir.
         Menu menu = new Menu();
         menu.affiche();
+        // Conversion du fichier source suivant le type de conversion desiree.
+        IConvertisseur convert = null;
         String resultatParsing = "";
-        switch(menu.getAction()){
+        switch(menu.getAction()) {
             // XML -> JSON
             case 0:
-            	//resultatParsing = XmlToJson.transform(menu.getCheminSource());
-            	resultatParsing = "";
+              // convert = new XmlToJson();
+              //resultatParsing = XmlToJson.transform(menu.getCheminSource());
             	break;
             // JSON -> XML
             case 1:
-            	//resultatParsing = JsonToXml.transform(menu.getCheminSource());
-            	resultatParsing = "";
+               // convert = new JsonToXml();
+               //resultatParsing = JsonToXml.transform(menu.getCheminSource());
             	break;
+            default:
+            	System.out.println("Erreur de fontionnement de l'application");
         }
-        // Creation du fichier resultat
-        try {
-			FileWriter file = new FileWriter(menu.getCheminResultat());
-			BufferedWriter buffer = new BufferedWriter(file);
-			PrintWriter pw = new PrintWriter(buffer); 
-			pw.print(resultatParsing);
-			pw.close();
-			System.out.println("Fichier créé");
-		}catch(IOException e){
-			System.out.println("Problème à l’écriture du fichier"); 
-			System.exit(0); 
-		}
+        // Creation et enregistrement du fichier resultat converti
+        convert.enregistrer(resultatParsing, menu.getCheminResultat());
     }
 }
