@@ -60,8 +60,9 @@ abstract class IConvertisseur {
      * paramètre. Renvoi le contenu sous forme de string    
      * @param adresseSource , l'adresse du fichier en param
      * @return le contenu du fichier
+     * @throws IOException 
      */
-    public String lire(final String adresseSource) {
+    public String lire(final String adresseSource) throws IOException {
     	//ouverture du fichier
         FileInputStream fichier = new FileInputStream(adresseSource);
         StringWriter writer = new StringWriter();
@@ -75,11 +76,14 @@ abstract class IConvertisseur {
                 writer.write(line);
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         //on met le contenu du fichier dans un String
+        String contenu = writer.toString();
+        //puis on ferme le buffer
+        buffer.close();
         
+        return contenu;
     }
     
 }

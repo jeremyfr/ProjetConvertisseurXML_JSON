@@ -41,7 +41,7 @@ public class Xml2json extends IConvertisseur {
             e.printStackTrace();
         }
         //on met le contenu du fichier dans un String
-        String contenu = writer.toString();
+        String contenu = lire(adresseSource);writer.toString();
         //puis on ferme le buffer
         buffer.close();
         //le contenu est placé dans un JSONObject
