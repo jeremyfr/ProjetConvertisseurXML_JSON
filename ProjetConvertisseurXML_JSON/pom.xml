@@ -4,12 +4,34 @@
 
 	<groupId>dcll.jfri</groupId>
 	<artifactId>ProjetConvertisseurXML_JSON</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>ProjetConvertisseurXML_JSON</name>
-	<url>http://maven.apache.org</url>
-
+	<name>J2X</name>
+	<description>J2X est un logiciel de conversion de fichier XML en Json (et inversement).</description>
+	<licenses>
+	   <license>
+	       <name>The Apache Software License, Version 2.0</name>
+	       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+	   </license>
+	</licenses>
+  
+	<organization>
+	   <name>PonyCorp</name>
+	   <url>https://www.facebook.com/pages/Un-jour-Helene-conquerra-le-monde-Mais-pas-demain-car-demain-cest-Poney/493038097424171?fref=ts</url>
+	</organization>
+	<issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/jeremyfr/ProjetConvertisseurXML_JSON/issues</url>
+  </issueManagement>
+	
+	<developers>
+	    <developer> <name>Carrere Charly</name></developer>
+	    <developer><name>Fricou Jeremy</name></developer>
+	    <developer><name>Golse Helene</name></developer>
+	    <developer><name>Larrieu Clement</name></developer>
+	</developers>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
