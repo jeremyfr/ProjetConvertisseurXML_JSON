@@ -3,10 +3,14 @@
  */
 package dcll.jfri.projetConvertisseur;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  * Definit les fonctions à implementer dans les classes de conversion de
@@ -50,4 +54,32 @@ abstract class IConvertisseur {
             System.exit(0);
         }
     }
+    
+    /**
+     * Lecture du contenu d'un fichier passé en
+     * paramètre. Renvoi le contenu sous forme de string    
+     * @param adresseSource , l'adresse du fichier en param
+     * @return le contenu du fichier
+     */
+    public String lire(final String adresseSource) {
+    	//ouverture du fichier
+        FileInputStream fichier = new FileInputStream(adresseSource);
+        StringWriter writer = new StringWriter();
+        InputStreamReader streamReader = new InputStreamReader(fichier);
+        //le buffer permet le readline
+        BufferedReader buffer = new BufferedReader(streamReader);
+        String line = "";
+        try {
+            //lecture du fichier
+            while (null != (line = buffer.readLine())) {
+                writer.write(line);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //on met le contenu du fichier dans un String
+        
+    }
+    
 }
