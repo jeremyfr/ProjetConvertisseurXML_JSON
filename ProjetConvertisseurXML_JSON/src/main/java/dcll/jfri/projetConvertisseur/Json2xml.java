@@ -1,8 +1,4 @@
 package dcll.jfri.projetConvertisseur;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,26 +19,8 @@ public class Json2xml extends IConvertisseur {
      * @throws IOException sd
      */
     public String transform(final String adresseSource) throws IOException {
-        //ouverture du fichier
-        FileInputStream fichier = new FileInputStream(adresseSource);
-        StringWriter writer = new StringWriter();
-        InputStreamReader streamReader = new InputStreamReader(fichier);
-        //le buffer permet le readline
-        BufferedReader buffer = new BufferedReader(streamReader);
-        String line = "";
-        try {
-            //lecture du fichier
-            while (null != (line = buffer.readLine())) {
-                writer.write(line);
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        // Contenu du fichier dans un String
-        String contenu = writer.toString();
-        //puis on ferme le buffer
-        buffer.close();
+    	 //on met le contenu du fichier dans un String
+        String contenu = lire(adresseSource);
         JSONObject o;
         try {
             //le contenu est placé dans un JSONObject

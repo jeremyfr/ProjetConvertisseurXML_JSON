@@ -82,7 +82,6 @@ abstract class IConvertisseur {
         String contenu = writer.toString();
         //puis on ferme le buffer
         buffer.close();
-        
         return contenu;
     }
     
