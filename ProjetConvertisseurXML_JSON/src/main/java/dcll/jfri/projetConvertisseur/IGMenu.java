@@ -201,6 +201,7 @@ public class IGMenu {
 
         // Creation du champs texte permettant du connaitre le chemin du fichier
         chemin = new JTextField(NB_CARACTERE_CHEMIN);
+        chemin.setEnabled(false);
         chemin.setAlignmentY(Component.CENTER_ALIGNMENT);
         conversion.add(chemin);       // Ajout du textfield au panneau
 
