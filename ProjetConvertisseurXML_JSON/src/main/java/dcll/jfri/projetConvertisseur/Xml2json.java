@@ -17,9 +17,10 @@ public class Xml2json extends IConvertisseur {
      * en JSONObject, puis retourné en string
      * @param string adresseSource.
      * @return string contenu du fichier converti en JSON
-     * @throws IOException sd
+     * @throws IOException exception levee lors erreur
      */
-    public String transform(final String adresseSource) throws IOException {
+    public final String transform(final String adresseSource)
+           throws IOException {
         //on met le contenu du fichier dans un String
         String contenu = lire(adresseSource);
         //le contenu est placé dans un JSONObject

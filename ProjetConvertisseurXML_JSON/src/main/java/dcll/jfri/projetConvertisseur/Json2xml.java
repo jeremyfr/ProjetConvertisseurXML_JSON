@@ -16,10 +16,11 @@ public class Json2xml extends IConvertisseur {
      * en string.
      * @param adresseSource final
      * @return string contenu du fichier converti en XML
-     * @throws IOException sd
+     * @throws IOException exception levee lors erreur
      */
-    public String transform(final String adresseSource) throws IOException {
-    	 //on met le contenu du fichier dans un String
+    public final String transform(final String adresseSource)
+           throws IOException {
+        //on met le contenu du fichier dans un String
         String contenu = lire(adresseSource);
         JSONObject o;
         try {

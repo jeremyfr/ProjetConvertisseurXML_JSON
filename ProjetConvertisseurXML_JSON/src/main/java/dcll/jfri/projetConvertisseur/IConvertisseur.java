@@ -54,16 +54,15 @@ abstract class IConvertisseur {
             System.exit(0);
         }
     }
-    
     /**
      * Lecture du contenu d'un fichier passé en
-     * paramètre. Renvoi le contenu sous forme de string    
+     * paramètre. Renvoi le contenu sous forme de string
      * @param adresseSource , l'adresse du fichier en param
      * @return le contenu du fichier
-     * @throws IOException 
+     * @throws IOException exception levee
      */
     public String lire(final String adresseSource) throws IOException {
-    	//ouverture du fichier
+        //ouverture du fichier
         FileInputStream fichier = new FileInputStream(adresseSource);
         StringWriter writer = new StringWriter();
         InputStreamReader streamReader = new InputStreamReader(fichier);
@@ -84,5 +83,5 @@ abstract class IConvertisseur {
         buffer.close();
         return contenu;
     }
-    
+
 }
