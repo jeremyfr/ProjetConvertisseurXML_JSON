@@ -23,6 +23,6 @@ public final class App {
      * @param args unused
      */
     public static void main(final String[] args) {
-         new IGMenu();
+         new GUIMenu();
     }
 }

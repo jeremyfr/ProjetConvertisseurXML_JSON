@@ -5,10 +5,10 @@ import org.json.JSONObject;
 import org.json.XML;
 /**
  * Classe qui permet la conversion de JSON vers XML
- * La classe étend l'interface IConvertisseur
+ * La classe étend l'interface Convertisseur
  * et implémente sa méthode transform.
  */
-public class Json2xml extends IConvertisseur {
+public class Json2xml extends Convertisseur {
     /**
      * Ouvre le fichier dont l'adresse est spécifiée en argument,
      * puis transforme son contenu en string. Ce string est

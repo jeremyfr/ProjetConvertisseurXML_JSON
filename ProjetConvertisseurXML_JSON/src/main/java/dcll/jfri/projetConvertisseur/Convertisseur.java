@@ -1,5 +1,5 @@
 /*
- * IConvertisseur.java                                               01/03/2013
+ * Convertisseur.java                                               01/03/2013
  */
 package dcll.jfri.projetConvertisseur;
 
@@ -20,7 +20,7 @@ import java.io.StringWriter;
  * @author Jérémy Fricou
  * @version 1.0
  */
-abstract class IConvertisseur {
+abstract class Convertisseur {
 
     /**
      * Conversion du contenu du fichier d'adresse passee en parametre.

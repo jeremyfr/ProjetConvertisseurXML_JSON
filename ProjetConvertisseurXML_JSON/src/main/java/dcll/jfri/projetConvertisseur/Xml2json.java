@@ -5,10 +5,10 @@ import org.json.JSONObject;
 import org.json.XML;
 /**
  * Classe permettant la conversion de XML vers JSON
- * La classe étend l'interface IConvertisseur et
+ * La classe étend l'interface Convertisseur et
  * implémente sa méthode transform.
  */
-public class Xml2json extends IConvertisseur {
+public class Xml2json extends Convertisseur {
     @Override
     /**
      * Ouvre le fichier dont l'adresse est spécifiée en argument,

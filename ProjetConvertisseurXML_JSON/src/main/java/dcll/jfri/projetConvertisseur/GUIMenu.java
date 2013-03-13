@@ -1,5 +1,5 @@
 /*
- * IGMenu.java                                                     11/03/2013
+ * GUIMenu.java                                                     11/03/2013
  */
 package dcll.jfri.projetConvertisseur;
 
@@ -29,7 +29,7 @@ import javax.swing.JTextField;
  * @author Jérémy Fricou
  * @version 1.0
  */
-public class IGMenu {
+public class GUIMenu {
     /** Coordonnee X de la fenetre. */
     private static final int X = 300;
     /** Coordonnee Y de la fenetre. */
@@ -68,7 +68,7 @@ public class IGMenu {
     /**
      * Constructeur par defaut de l'application graphique.
      */
-    public IGMenu() {
+    public GUIMenu() {
         // Attributs de la fenetre affichee
         fenetre = new JFrame("Conversion XML - JSON");
         fenetre.setResizable(false);
@@ -121,7 +121,7 @@ public class IGMenu {
              */
             public void actionPerformed(final ActionEvent actionEvent) {
                 // Attributs utiles pour la conversion
-                IConvertisseur convert = null;
+                Convertisseur convert = null;
                 String resultatParsing = "";
                 // Definition de l'action en fontion de l'extension du fichier
                 // 0 = XML -> JSON , 1 = JSON -> XML
